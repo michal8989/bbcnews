@@ -145,7 +145,6 @@ public class MainActivity extends ActionBarActivity implements
 			}
 		} else if (getSupportFragmentManager().getBackStackEntryCount() > 0){
 		    getSupportFragmentManager().popBackStackImmediate();
-
 		    toastShowed = false;
 		} 
 

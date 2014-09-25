@@ -8,7 +8,6 @@ import pl.com.andruszko.bbcnews.R;
 import pl.com.andruszko.bbcnews.Constants.Constants;
 import pl.com.andruszko.bbcnews.utilities.ConnectionUtility;
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,7 +34,7 @@ public class NewsFragment extends BaseFragment{
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.action_example) {
-			//loadNews(getView());
+			loadNews(getView());
 			return true;
 		}
 		return super.onOptionsItemSelected(item);	

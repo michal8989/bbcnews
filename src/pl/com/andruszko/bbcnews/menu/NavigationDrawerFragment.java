@@ -1,22 +1,17 @@
 package pl.com.andruszko.bbcnews.menu;
 
 import pl.com.andruszko.bbcnews.R;
-import pl.com.andruszko.bbcnews.R.drawable;
-import pl.com.andruszko.bbcnews.R.id;
-import pl.com.andruszko.bbcnews.R.layout;
-import pl.com.andruszko.bbcnews.R.menu;
-import pl.com.andruszko.bbcnews.R.string;
-import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,14 +21,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation
- * drawer. See the <a href=
- * "https://developer.android.com/design/patterns/navigation-drawer.html#Interaction"
- * > design guidelines</a> for a complete explanation of the behaviors
- * implemented here.
+ * drawer.
  */
 public class NavigationDrawerFragment extends Fragment {
 
@@ -114,8 +105,8 @@ public class NavigationDrawerFragment extends Fragment {
 		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), R.layout.menu_item,
 				android.R.id.text1, new String[] {
-						getString(R.string.title_section1),
-						getString(R.string.title_section2),
+						getString(R.string.title_news),
+						getString(R.string.title_about),
 						getString(R.string.button_exit), }));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
@@ -143,10 +134,8 @@ public class NavigationDrawerFragment extends Fragment {
 		mFragmentContainerView = getActivity().findViewById(fragmentId);
 		mDrawerLayout = drawerLayout;
 
-		// set a custom shadow that overlays the main content when the drawer
-		// opens
-		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
-				GravityCompat.START);
+		// set a custom shadow that overlays the main content when the drawer opens
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 		// set up the drawer's list view with items and click listener
 
 		ActionBar actionBar = getActionBar();
@@ -158,14 +147,8 @@ public class NavigationDrawerFragment extends Fragment {
 		mDrawerToggle = new ActionBarDrawerToggle(getActivity(), /* host Activity */
 		mDrawerLayout, /* DrawerLayout object */
 		R.drawable.ic_drawer, /* nav drawer image to replace 'Up' caret */
-		R.string.navigation_drawer_open, /*
-										 * "open drawer" description for
-										 * accessibility
-										 */
-		R.string.navigation_drawer_close /*
-										 * "close drawer" description for
-										 * accessibility
-										 */
+		R.string.navigation_drawer_open, 
+		R.string.navigation_drawer_close 
 		) {
 			@Override
 			public void onDrawerClosed(View drawerView) {
@@ -174,8 +157,8 @@ public class NavigationDrawerFragment extends Fragment {
 					return;
 				}
 
-				getActivity().supportInvalidateOptionsMenu(); // calls
-																// onPrepareOptionsMenu()
+				getActivity().supportInvalidateOptionsMenu();
+																
 			}
 
 			@Override
@@ -196,8 +179,8 @@ public class NavigationDrawerFragment extends Fragment {
 							.apply();
 				}
 
-				getActivity().supportInvalidateOptionsMenu(); // calls
-																// onPrepareOptionsMenu()
+				getActivity().supportInvalidateOptionsMenu();
+																
 			}
 		};
 

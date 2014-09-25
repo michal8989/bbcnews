@@ -10,7 +10,7 @@ import javax.xml.parsers.SAXParserFactory;
  * @author mandruszko
  */
 public class RssReader {
-    // Our class has an attribute which represents RSS Feed URL
+    // Class has an attribute which represents RSS Feed URL
     private String rssUrl;
 
     public RssReader(String rssUrl) {

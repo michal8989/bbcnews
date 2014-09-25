@@ -21,12 +21,11 @@ public class AboutFragment extends BaseFragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	}
-	
+	}	
 
 	@Override
 	public void onAttach(Activity activity) {
-		setTitle(R.string.title_section2);
+		setTitle(R.string.title_about);
 		super.onAttach(activity);
 	}
 
@@ -34,7 +33,7 @@ public class AboutFragment extends BaseFragment{
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		final View rootView = inflater.inflate(R.layout.fragment_about, container,
 				false);
-
+		
 		return rootView;
 	}
 

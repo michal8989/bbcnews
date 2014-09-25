@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
@@ -33,7 +34,7 @@ public class WebFragment extends BaseFragment{
 	
 	@Override
 	public void onAttach(Activity activity) {
-		
+		enableLoader(true);
 		if(getArguments() != null) {
 			mLink = getArguments().getString("link");
 			mTitle = getArguments().getString("title");
@@ -61,12 +62,15 @@ public class WebFragment extends BaseFragment{
 		 // Disabling the local file system access - security
 		 webview.getSettings().setAllowFileAccess(false);
 		 // Security class
-		 webview.setWebViewClient(new NewsWebViewClient(getActivity()));		 
+		 webview.setWebViewClient(new NewsWebViewClient(getActivity(),this));		 
 		 
 		 // Let's display the progress in the activity title bar, like the
 		 // browser app does.
 		 final Activity activity = getActivity();
 		 webview.setWebChromeClient(new WebChromeClient() {
+			 
+			   
+
 		   public void onProgressChanged(WebView view, int progress) {
 		     // Activities and WebViews measure progress with different scales.
 		     // The progress meter will automatically disappear when we reach 100%
@@ -84,5 +88,16 @@ public class WebFragment extends BaseFragment{
 		
 		return rootView;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.action_example) {
+			WebView webview = (WebView) getView().findViewById(R.id.webView);
+			webview.reload();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);	
+	}	
 
 }

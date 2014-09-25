@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * OnClick list listener
+ * @author mandruszko
+ */
 public class NewsListListener implements OnItemClickListener {
 
 	// List item's reference

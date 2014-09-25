@@ -11,7 +11,12 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
+/**
+ * AsyncTask to download images in news
+ * @author mandruszko
+ */
 class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
+	// Weak reference to ImageView to easy release this View.
     private final WeakReference<ImageView> imageViewReference;
     RssItem mItem;
     public BitmapDownloaderTask(RssItem item, ImageView imageView) {

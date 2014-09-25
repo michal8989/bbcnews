@@ -1,5 +1,9 @@
 package pl.com.andruszko.bbcnews.Constants;
 
+/**
+ * Class holds basic configuration
+ * @author mandruszko
+ */
 public class Constants {
 
 	// RSS Feed address

@@ -4,14 +4,17 @@ import java.util.List;
 
 import android.content.Context;
 import android.os.AsyncTask;
-
+/**
+ * Async task to feetching RSS data from serwer
+ * @author mandruszko
+ */
 class RssDataAsyncTask extends AsyncTask<String, Void, List<RssItem>> {
 	
 	Context mContext;
 	
 	public RssDataAsyncTask() {
 	}
-	
+
 	public RssDataAsyncTask(Context context) {
 		this.mContext = context;
 	}

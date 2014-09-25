@@ -7,11 +7,13 @@
         android:id="@+id/action_example"
         android:title="@string/action_example"
         android:icon="@android:drawable/ic_popup_sync"
-        app:showAsAction="withText|ifRoom"/>
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
+
+    <ImageView
+	android:id="@+id/action_example1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:contentDescription="@string/app_name"
+    android:src="@android:drawable/ic_popup_sync" />
 
 </menu>

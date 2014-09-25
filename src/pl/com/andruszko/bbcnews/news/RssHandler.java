@@ -116,7 +116,7 @@ public class RssHandler extends DefaultHandler {
 				case pubDate: { 
 					if(currentItem != null){
 						try {
-							currentItem.setPublishDate(new SimpleDateFormat("EEE, dd MMM yyyy hh:mm:ss zzz", Locale.ENGLISH).parse(new String(ch, start, length)));
+							currentItem.setPublishDate(new SimpleDateFormat("EEE, dd MMM yyyy hh:mm:ss ", Locale.ENGLISH).parse(new String(ch, start, length-3)));
 						} catch (ParseException e) {
 							e.printStackTrace();
 						}

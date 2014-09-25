@@ -2,7 +2,6 @@ package pl.com.andruszko.bbcnews;
 
 import pl.com.andruszko.bbcnews.menu.NavigationDrawerFragment;
 import pl.com.andruszko.bbcnews.news.NewsFragment;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -61,19 +60,16 @@ public class MainActivity extends ActionBarActivity implements
 
 		switch(position) {
 			case 1: { 				
-				replaceContent(new AboutFragment());					
+				replaceContent(new AboutFragment()); // About section				
 			} break;
-			//app exit
-			case 2: { finish(); } break;
+			case 2: { finish(); } break; //app exit
 			default: {
-				replaceContent(new NewsFragment());				
+				replaceContent(new NewsFragment());	// News section			
 			} break;
 		}
 
 	}
-	
 
-	
 	// update the main content by replacing fragments
 	public void replaceContent(Fragment fragment) {
 		
@@ -100,10 +96,6 @@ public class MainActivity extends ActionBarActivity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		if (!mNavigationDrawerFragment.isDrawerOpen()) {
-			// Only show items in the action bar relevant to this screen
-			// if the drawer is not showing. Otherwise, let the drawer
-			// decide what to show in the action bar.
-			getMenuInflater().inflate(R.menu.main, menu);
 			restoreActionBar();
 			return true;
 		}
@@ -112,13 +104,6 @@ public class MainActivity extends ActionBarActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
 		return super.onOptionsItemSelected(item);
 	}
 	

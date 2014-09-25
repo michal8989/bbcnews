@@ -19,16 +19,16 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 /**
- * A fragment that displays an RSS feed
- *
+ * A fragment displays an RSS feed
  * @author mandruszko
  */
 
 public class NewsFragment extends BaseFragment{
 
-	RssDataAsyncTask mAsyncTask;
+	private RssDataAsyncTask mAsyncTask;
 	
 	public NewsFragment() {
+		super();
 	}	
 	
 	@Override
@@ -37,21 +37,24 @@ public class NewsFragment extends BaseFragment{
 			loadNews(getView());
 			return true;
 		}
+
 		return super.onOptionsItemSelected(item);	
 	}
 	
 	@Override
 	public void onAttach(Activity activity) {
-		setTitle(R.string.title_section1);
+		//enables refresh button in actionbar
+		enableLoader(true);
+		setTitle(R.string.title_news);
 		super.onAttach(activity);
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);		
 	}
 
-	
 	
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -78,11 +81,21 @@ public class NewsFragment extends BaseFragment{
 			Toast.makeText(getActivity(), getText(R.string.no_internet_connection), Toast.LENGTH_SHORT).show();
 		}
 		
+		
+		// If any task in use try to stop
 		if(mAsyncTask != null && mAsyncTask.getStatus() != AsyncTask.Status.FINISHED) {
 			mAsyncTask.cancel(true);
 		}
-		
+
+		// Creating new async task to get data	
 		mAsyncTask = new RssDataAsyncTask() {
+			
+			
+			@Override
+			protected void onPreExecute() {
+				runLoader();
+				super.onPreExecute();
+			}			
 			
 			@Override
 			protected void onPostExecute(List<RssItem> result) {
@@ -96,10 +109,12 @@ public class NewsFragment extends BaseFragment{
 
 				// Set list view item click listener
 				rssItems.setOnItemClickListener(new NewsListListener(result, (MainActivity) getActivity()));
+				stopLoader();
 			}
 			
 		};
         
+		
         // Start download RSS task
 		mAsyncTask.execute(Constants.RSS_URL);		
 		

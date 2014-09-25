@@ -1,5 +1,11 @@
-package pl.com.andruszko.bbcnews;
+package pl.com.andruszko.bbcnews.menu;
 
+import pl.com.andruszko.bbcnews.R;
+import pl.com.andruszko.bbcnews.R.drawable;
+import pl.com.andruszko.bbcnews.R.id;
+import pl.com.andruszko.bbcnews.R.layout;
+import pl.com.andruszko.bbcnews.R.menu;
+import pl.com.andruszko.bbcnews.R.string;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -106,11 +112,11 @@ public class NavigationDrawerFragment extends Fragment {
 					}
 				});
 		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar()
-				.getThemedContext(), android.R.layout.simple_list_item_1,
+				.getThemedContext(), R.layout.menu_item,
 				android.R.id.text1, new String[] {
 						getString(R.string.title_section1),
 						getString(R.string.title_section2),
-						getString(R.string.title_section3), }));
+						getString(R.string.button_exit), }));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}
@@ -120,6 +126,10 @@ public class NavigationDrawerFragment extends Fragment {
 				&& mDrawerLayout.isDrawerOpen(mFragmentContainerView);
 	}
 
+	public void closeDrawers() {
+		mDrawerLayout.closeDrawers();
+	}
+	
 	/**
 	 * Users of this fragment must call this method to set up the navigation
 	 * drawer interactions.
@@ -268,12 +278,6 @@ public class NavigationDrawerFragment extends Fragment {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
-			return true;
-		}
-
-		if (item.getItemId() == R.id.action_example) {
-			Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT)
-					.show();
 			return true;
 		}
 

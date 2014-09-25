@@ -10,4 +10,6 @@
     -->
     <dimen name="navigation_drawer_width">240dp</dimen>
 
+    <dimen name="fragment_news_padding">5dp</dimen>
+    
 </resources>

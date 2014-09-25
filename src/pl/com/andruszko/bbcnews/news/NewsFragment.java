@@ -69,12 +69,6 @@ public class NewsFragment extends BaseFragment{
 		return rootView;
 	}
 	
-	@Override 
-	public void onConfigurationChanged(Configuration newConfig) {
-		
-		super.onConfigurationChanged(newConfig);
-	}	
-	
 	private void loadNews(final View rootView) {
 
 		// Checking is Activity is alive
